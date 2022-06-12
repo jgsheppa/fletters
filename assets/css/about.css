@@ -1,0 +1,27 @@
+.profile-pic {
+    border-radius: 50%;
+    height: 14rem;
+    width: 14rem;
+    margin-bottom: 3rem;
+}
+
+.about-text-bg {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: 0.25rem;
+    padding: 1rem 2rem;
+}
+
+.about-bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background: var(--indigo);
+    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+    height: auto;
+    max-width: 40rem;
+    width: 100%;
+}

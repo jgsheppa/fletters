@@ -1,0 +1,20 @@
+:root {
+    --indigo: #6366f1;
+    --white: #ffffff;
+}
+
+.text {
+    color: var(--white);
+    font-family: "Roboto Thin";
+
+}
+
+.link {
+    color: var(--indigo);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 1.5rem 2.5rem;
+    border-radius: 0.25rem;
+    background: var(--white);
+    text-decoration: none;
+}

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/jgsheppa/fletters/controllers"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -54,6 +55,18 @@ func main() {
 	fmt.Println("newUser", newUser)
 
 	r := mux.NewRouter()
+	staticController := controllers.NewStatic()
+
+	r.Handle("/", staticController.Home).Methods("GET")
+	r.Handle("/contact", staticController.Contact).Methods("GET")
+	r.Handle("/about", staticController.About).Methods("GET")
+
+	// Assets
+	assetHandler := http.FileServer(http.Dir("./assets/"))
+	r.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", assetHandler))
+
+	// HandlerFunc converts notFound to the correct type
+	r.NotFoundHandler = staticController.NotFound
 	fmt.Println("Starting the development server on port" + port)
 	http.ListenAndServe(":"+port, r)
 }
